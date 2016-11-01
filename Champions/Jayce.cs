@@ -206,7 +206,7 @@ namespace Looksharp.Champions
         {
             if (isMelee)
             {
-                if (Q.IsReady())
+                if (ModeMenu["jayce.flee.q"].Cast<CheckBox>().CurrentValue && Q.IsReady())
                 {
                     AIHeroClient bestChampion = EntityManager.Heroes.Enemies.OrderBy(x => x.Distance(Game.CursorPos))
                     .Where(x => Q.IsInRange(x) && x.Distance(Game.CursorPos) + 200 < hero.Distance(Game.CursorPos)).FirstOrDefault();
@@ -227,7 +227,7 @@ namespace Looksharp.Champions
             }
             else
             {
-                if (E.IsReady())
+                if (ModeMenu["jayce.flee.e2"].Cast<CheckBox>().CurrentValue && E.IsReady())
                 {
                     E2.Cast(Helper.extend(hero.Position, Game.CursorPos, 80, 1));
                 }
