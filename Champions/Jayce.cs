@@ -262,6 +262,13 @@ namespace Looksharp.Champions
                     E.Cast(target);
                     return;
                 }
+                // Q hammer
+                if (MiscMenu["jayce.killsteal.qe"].Cast<CheckBox>().CurrentValue && (Qdmg(target) + AAdmg(target) + Edmg(target)) > target.Health &&
+                    CD[2] == 0 && E.IsInRange(target) && (isMelee || ((!isMelee && R.IsReady() && R.Cast()))))
+                {
+                    Q.Cast(target);
+                    return;
+                }
             }
         }
 
