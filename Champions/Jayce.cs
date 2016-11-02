@@ -66,6 +66,7 @@ namespace Looksharp.Champions
             MiscMenu.Add("jayce.killsteal.qe", new CheckBox("Use QE Cannon"));
             MiscMenu.Add("jayce.killsteal.q2", new CheckBox("Use Q Cannon"));
             MiscMenu.Add("jayce.killsteal.e", new CheckBox("Use E Hammer"));
+            MiscMenu.Add("jayce.killsteal.Q+AA+E", new CheckBox("Use Q+AA+e Hammer"));
 
             DrawMenu = PluginMenu.AddSubMenu("Drawing", "Drawing");
             DrawMenu.AddGroupLabel("Spell Ranges");
@@ -263,7 +264,7 @@ namespace Looksharp.Champions
                     return;
                 }
                 // Q hammer
-                if (MiscMenu["jayce.killsteal.qe"].Cast<CheckBox>().CurrentValue && (Qdmg(target) + AAdmg(target) + Edmg(target)) > target.Health &&
+                if (MiscMenu["jayce.killsteal.Q+AA+E"].Cast<CheckBox>().CurrentValue && (Qdmg(target) + AAdmg(target) + Edmg(target)) > target.Health &&
                     CD[2] == 0 && E.IsInRange(target) && (isMelee || ((!isMelee && R.IsReady() && R.Cast()))))
                 {
                     Q.Cast(target);
